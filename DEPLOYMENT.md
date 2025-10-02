@@ -31,7 +31,7 @@ git commit -m "Initial commit - Portfolio website"
 Replace `YOUR_USERNAME` and `REPO_NAME` with your actual GitHub username and repository name:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
+git remote add origin https://github.com/JMR825/portfolio.git
 git branch -M main
 git push -u origin main
 ```
@@ -43,7 +43,7 @@ git push -u origin main
 ```javascript
 export default defineConfig({
   plugins: [react()],
-  base: '/REPO_NAME/', // Replace REPO_NAME with your actual repo name
+  base: '/portfolio/', // Replace REPO_NAME with your actual repo name
 })
 ```
 
@@ -78,7 +78,7 @@ This will:
 
 Your portfolio will be live at:
 ```
-https://YOUR_USERNAME.github.io/REPO_NAME/
+https://YOUR_USERNAME.github.io/portfolio/
 ```
 
 For example, if your username is `JMR825` and repo is `portfolio`:
