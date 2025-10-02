@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: 'windsurf-project/Portfolio/', // Replace REPO_NAME with your actual repo name
+  base: '/portfolio/', // Replace REPO_NAME with your actual repo name
 })
