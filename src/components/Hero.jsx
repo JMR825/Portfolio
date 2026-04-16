@@ -21,10 +21,15 @@ const Hero = React.memo(() => {
   };
 
   return (
-    <section id="home" className="dark-hero">
+    <div className="dark-hero">
       <div className="gradient-bg" aria-hidden="true" />
       
       <div className="hero-content">
+
+        <div className="profile-pic">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=500&auto=format&fit=crop&q=80" alt="Janhavi Rathod" loading="lazy" />
+        </div>
+
         <h1>JANHAVI RATHOD</h1>
         <h2 aria-live="polite">
           <span className="typing">{typingText}</span>
@@ -39,8 +44,9 @@ const Hero = React.memo(() => {
           Download Resume
         </button>
       </div>
-    </section>
+    </div>
   );
+
 });
 
 Hero.displayName = "Hero";

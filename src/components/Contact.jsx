@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = React.memo(() => {
   return (
-    <section id="contact" className="section contact">
+<div className="contact-content-wrapper">
       <h2>Contact</h2>
       <div className="contact-content">
         <p>
@@ -31,8 +31,9 @@ const Contact = React.memo(() => {
           </a>
         </div>
       </div>
-    </section>
+    </div>
   );
+
 });
 
 Contact.displayName = "Contact";

@@ -4,7 +4,7 @@ const experienceData = [
   {
     company: "Vault Of Codes",
     role: "Web Development Intern",
-    duration: "31st Dec 2024 - 31st Jan 2025",
+    duration: "Dec 2024 - Jan 2025 (Internship)",
     description: "Designed and developed responsive web applications using HTML, CSS, JavaScript, and React. Built real-world projects with modern frameworks and collaborated on UI/UX improvements.",
     achievements: [
       "Created a responsive NGO website and task management application",
@@ -16,7 +16,7 @@ const experienceData = [
   {
     company: "Vault Of Codes",
     role: "Java Intern",
-    duration: "31st Dec 2024 - 31st Jan 2025",
+    duration: "Dec 2024 - Jan 2025 (Internship)",
     description: "Focused on core and advanced Java programming concepts, contributing to backend modules and enterprise-level applications. Strengthened problem-solving skills through DSA and real-world Java projects.",
     achievements: [
       "Developed Java-based applications with OOPs concepts",
@@ -28,7 +28,7 @@ const experienceData = [
   {
     company: "Vault Of Codes",
     role: "Cybersecurity & Ethical Hacking Intern",
-    duration: "31st Dec 2024 - 31st Jan 2025",
+    duration: "Dec 2024 - Jan 2025 (Internship)",
     description: "Worked on security-focused projects, gaining practical exposure to ethical hacking, vulnerability assessment, and cyber forensics. Applied cybersecurity fundamentals to identify risks and strengthen system defenses.",
     achievements: [
       "Performed vulnerability assessment and basic penetration testing",
@@ -41,21 +41,27 @@ const experienceData = [
 
 const Experience = React.memo(() => {
   return (
-    <section id="experience" className="section experience">
+
+<div className="experience-content">
+
       <h2>Experience</h2>
-      {experienceData.map(({ company, role, duration, description, achievements }, index) => (
-        <article key={`${company}-${role}-${index}`} className="experience-card">
-          <h3>{role} @ {company}</h3>
-          <span className="duration">{duration}</span>
-          <p>{description}</p>
-          <ul>
-            {achievements.map((ach, i) => (
-              <li key={i}>{ach}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
-    </section>
+
+      <div className="card-grid">
+        {experienceData.map(({ company, role, duration, description, achievements }, index) => (
+          <article key={`${company}-${role}-${index}`} className="card">
+            <h3>{role} @ <span className="accent">{company}</span></h3>
+            <span className="duration">{duration}</span>
+            <p>{description}</p>
+            <ul>
+              {achievements.map((ach, i) => (
+                <li key={i}>{ach}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+    </div>
   );
 });
 

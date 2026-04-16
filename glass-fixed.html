@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism - Fixed Solid Issue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            height: 300vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+        }
+
+        /* FIXED GLASS - Stronger blur + multiple layers */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.37),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 40px;
+            z-index: 100;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-list a {
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-list a:hover {
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            height: 100vh;
+            padding: 100px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            scroll-margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card {
+            padding: 40px;
+        }
+
+        /* Demo sections */
+        #demo1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        #demo2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        #demo3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+
+        /* Scrollbar glass */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- GLASS NAVBAR -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#demo1" style="background: rgba(255,255,255,0.15); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(15px);">Home</a></li>
+            <li><a href="#demo2" class="glass" style="padding: 15px 25px;">Skills</a></li>
+            <li><a href="#demo3" class="glass" style="padding: 15px 25px;">Experience</a></li>
+            <li><a href="#demo4" class="glass" style="padding: 15px 25px;">Projects</a></li>
+            <li><a href="#demo5" class="glass" style="padding: 15px 25px;">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- DEMO SECTIONS -->
+    <section id="demo1" class="section">
+        <div class="glass" style="padding: 60px 80px; max-width: 800px;">
+            <h1>GLASS NAVBAR + CARDS</h1>
+            <p style="font-size: 1.3rem; margin-top: 20px;">Solid → Glass fixed with double backdrop-filter + inset shadow</p>
+        </div>
+    </section>
+
+    <section id="demo2" class="section">
+        <h2>Skills Cards</h2>
+        <div class="grid">
+            <div class="card glass" style="padding: 40px;">
+                <h3>Frontend</h3>
+                <p>React • Vue • Tailwind</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>Backend</h3>
+                <p>Node • Python • SQL</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>Design</h3>
+                <p>Figma • Glassmorphism</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo3" class="section">
+        <h2>Experience</h2>
+        <div class="grid">
+            <div class="card glass" style="padding: 40px;">
+                <h3>Web Dev Intern</h3>
+                <p>Fullstack projects</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>AI/ML Intern</h3>
+                <p>Machine Learning models</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>UI/UX Design</h3>
+                <p>Glass effects specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo4" class="section">
+        <h2>Projects</h2>
+        <div class="grid">
+            <div class="card glass" style="padding: 40px;">
+                <h3>Portfolio 2024</h3>
+                <p>Pure CSS glassmorphism</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>Task App</h3>
+                <p>React + Firebase</p>
+            </div>
+            <div class="card glass" style="padding: 40px;">
+                <h3>Weather App</h3>
+                <p>API + Glass UI</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo5" class="section">
+        <h2>Contact</h2>
+        <div class="glass" style="padding: 60px 80px; max-width: 600px; backdrop-filter: blur(30px); border-radius: 30px;">
+            <h3>Get in Touch</h3>
+            <p style="font-size: 1.2rem; margin: 20px 0;">email@example.com</p>
+            <p style="opacity: 0.8;">Open for glassmorphism projects! 🚀</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
